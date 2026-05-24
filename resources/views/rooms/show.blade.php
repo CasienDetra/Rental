@@ -21,7 +21,7 @@
                     <p class="text-gray-600">📍 Premium Location</p>
                 </div>
                 <div class="text-right">
-                    <div class="text-4xl font-bold text-blue-600">${{ number_format($room->price_per_night, 2) }}</div>
+                    <div class="text-4xl font-bold text-blue-600">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }}</div>
                     <div class="text-gray-600">per night</div>
                 </div>
             </div>
@@ -153,10 +153,10 @@
                         </div>
 
                         <!-- Price Summary -->
-                        <div class="bg-gray-50 p-4 rounded-lg mb-6 space-y-2 text-sm">
+                         <div class="bg-gray-50 p-4 rounded-lg mb-6 space-y-2 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Price per night</span>
-                                <span class="font-semibold">${{ number_format($room->price_per_night, 2) }}</span>
+                                <span class="font-semibold">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }}</span>
                             </div>
                             <div class="flex justify-between pb-2 border-b">
                                 <span class="text-gray-600">Number of nights</span>
@@ -164,7 +164,7 @@
                             </div>
                             <div class="flex justify-between text-lg">
                                 <span class="font-bold">Total</span>
-                                <span class="font-bold text-blue-600">${{ number_format($room->price_per_night, 2) }} × <span id="total-nights">0</span></span>
+                                <span class="font-bold text-blue-600">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }} × <span id="total-nights">0</span></span>
                             </div>
                         </div>
 

@@ -48,7 +48,7 @@
                     <h3 class="font-bold text-lg mb-2">{{ $room->title }}</h3>
                     <p class="text-gray-600 text-sm mb-4">{{ Str::limit($room->description, 60) }}</p>
                     <div class="flex justify-between items-center mb-4">
-                        <span class="text-2xl font-bold text-blue-600">${{ number_format($room->price_per_night, 2) }}</span>
+                        <span class="text-2xl font-bold text-blue-600">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }}</span>
                         <span class="text-sm text-gray-600">per night</span>
                     </div>
                     <div class="flex items-center justify-between mb-4 text-sm text-gray-600">

@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\Currency;
 use Database\Factories\RoomFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['title', 'description', 'price_per_night', 'capacity', 'available', 'image_path'])]
+#[Fillable(['title', 'description', 'price_per_night', 'capacity', 'available', 'image_path', 'currency'])]
 final class Room extends Model
 {
     /** @use HasFactory<RoomFactory> */
@@ -34,6 +35,7 @@ final class Room extends Model
         return [
             'available' => 'boolean',
             'price_per_night' => 'decimal:2',
+            'currency' => Currency::class,
         ];
     }
 }

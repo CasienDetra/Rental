@@ -66,7 +66,7 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            <p class="font-bold text-blue-600">${{ number_format($booking->total_price, 2) }}</p>
+                            <p class="font-bold text-blue-600">{{ $booking->room->currency->symbol() }}{{ number_format($booking->total_price, 2) }}</p>
                         </td>
                         <td class="px-6 py-4">
                             @if($booking->status === 'confirmed')
