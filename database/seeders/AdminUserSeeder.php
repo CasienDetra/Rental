@@ -14,7 +14,7 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         User::firstOrCreate(
-            ['email' => 'admin'],
+            ['email' => 'admin@example.com'],
             [
                 'name' => 'Admin',
                 'password' => Hash::make('admin123'),
@@ -22,6 +22,6 @@ class AdminUserSeeder extends Seeder
             ]
         );
 
-        echo "\nAdmin user created successfully!\nEmail: admin\nPassword: admin123\n";
+        echo "\nAdmin user created successfully!\nEmail: admin@example.com\nPassword: admin123\n";
     }
 }
