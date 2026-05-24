@@ -71,6 +71,7 @@ final class RoomController extends Controller
             'price_per_night' => ['required', 'numeric', 'min:0'],
             'capacity' => ['required', 'integer', 'min:1'],
             'available' => ['boolean'],
+            'currency' => ['required', 'string', 'in:USD,KHR'],
             'image_path' => ['nullable', 'string'],
         ]);
 
@@ -92,6 +93,7 @@ final class RoomController extends Controller
             'price_per_night' => ['numeric', 'min:0'],
             'capacity' => ['integer', 'min:1'],
             'available' => ['boolean'],
+            'currency' => ['nullable', 'string', 'in:USD,KHR'],
             'image_path' => ['nullable', 'string'],
         ]);
 
@@ -217,6 +219,7 @@ final class RoomController extends Controller
             'price_per_night' => ['required', 'numeric', 'min:0'],
             'capacity' => ['required', 'integer', 'min:1'],
             'available' => ['boolean'],
+            'currency' => ['required', 'string', 'in:USD,KHR'],
         ]);
 
         Room::create($validated);
@@ -247,6 +250,7 @@ final class RoomController extends Controller
             'price_per_night' => ['numeric', 'min:0'],
             'capacity' => ['integer', 'min:1'],
             'available' => ['boolean'],
+            'currency' => ['nullable', 'string', 'in:USD,KHR'],
         ]);
 
         $room->update($validated);
