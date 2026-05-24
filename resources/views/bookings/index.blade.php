@@ -65,7 +65,7 @@
                         @endif
                         
                         <p class="text-sm text-gray-600 mt-3">Total Price</p>
-                        <p class="text-xl font-bold text-blue-600">${{ number_format($booking->total_price, 2) }}</p>
+                        <p class="text-xl font-bold text-blue-600">{{ $booking->room->currency->symbol() }}{{ number_format($booking->total_price, 2) }}</p>
                     </div>
 
                     <!-- Actions -->

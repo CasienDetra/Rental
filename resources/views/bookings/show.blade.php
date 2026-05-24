@@ -41,7 +41,7 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Price per night:</span>
-                            <span class="font-semibold">${{ number_format($booking->room->price_per_night, 2) }}</span>
+                            <span class="font-semibold">{{ $booking->room->currency->symbol() }}{{ number_format($booking->room->price_per_night, 2) }}</span>
                         </div>
                     </div>
                 </div>
@@ -70,16 +70,16 @@
                     <h2 class="text-2xl font-bold mb-4">Price Summary</h2>
                     <div class="bg-gray-50 p-6 rounded-lg space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">${{ number_format($booking->room->price_per_night, 2) }} × {{ $booking->check_out_date->diffInDays($booking->check_in_date) }} nights</span>
-                            <span class="font-semibold">${{ number_format($booking->total_price * 0.909, 2) }}</span>
+                            <span class="text-gray-600">{{ $booking->room->currency->symbol() }}{{ number_format($booking->room->price_per_night, 2) }} × {{ $booking->check_out_date->diffInDays($booking->check_in_date) }} nights</span>
+                            <span class="font-semibold">{{ $booking->room->currency->symbol() }}{{ number_format($booking->total_price * 0.909, 2) }}</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Service fee (10%)</span>
-                            <span class="font-semibold">${{ number_format($booking->total_price * 0.091, 2) }}</span>
+                            <span class="font-semibold">{{ $booking->room->currency->symbol() }}{{ number_format($booking->total_price * 0.091, 2) }}</span>
                         </div>
                         <div class="flex justify-between text-lg font-bold pt-3 border-t">
                             <span>Total</span>
-                            <span class="text-blue-600">${{ number_format($booking->total_price, 2) }}</span>
+                            <span class="text-blue-600">{{ $booking->room->currency->symbol() }}{{ number_format($booking->total_price, 2) }}</span>
                         </div>
                     </div>
                 </div>

@@ -105,7 +105,7 @@
 
                             <div class="flex items-center justify-between mb-4">
                                 <div>
-                                    <span class="text-3xl font-bold text-blue-600">${{ number_format($room->price_per_night, 2) }}</span>
+                                    <span class="text-3xl font-bold text-blue-600">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }}</span>
                                     <span class="text-sm text-gray-600"> / night</span>
                                 </div>
                                 <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full">Available</span>

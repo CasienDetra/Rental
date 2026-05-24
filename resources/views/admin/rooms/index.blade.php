@@ -38,7 +38,7 @@
                             <p class="font-semibold">{{ $room->capacity }} guests</p>
                         </td>
                         <td class="px-6 py-4">
-                            <p class="font-semibold text-blue-600">${{ number_format($room->price_per_night, 2) }}</p>
+                            <p class="font-semibold text-blue-600">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }}</p>
                         </td>
                         <td class="px-6 py-4">
                             @if($room->available)

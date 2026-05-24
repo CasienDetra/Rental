@@ -64,7 +64,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Price per night:</span>
-                                <span class="font-semibold">${{ number_format($room->price_per_night, 2) }}</span>
+                                <span class="font-semibold">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }}</span>
                             </div>
                         </div>
                     </div>
@@ -120,18 +120,18 @@
 
                 <div class="space-y-2 mb-6 pb-6 border-b">
                     <div class="flex justify-between">
-                        <span class="text-gray-600">${{ number_format($room->price_per_night, 2) }} × <span id="price-nights">0</span> nights</span>
-                        <span class="font-semibold" id="subtotal">$0.00</span>
+                        <span class="text-gray-600">{{ $room->currency->symbol() }}{{ number_format($room->price_per_night, 2) }} × <span id="price-nights">0</span> nights</span>
+                        <span class="font-semibold" id="subtotal">{{ $room->currency->symbol() }}0.00</span>
                     </div>
                     <div class="flex justify-between">
                         <span class="text-gray-600">Service fee</span>
-                        <span class="font-semibold" id="fee">$0.00</span>
+                        <span class="font-semibold" id="fee">{{ $room->currency->symbol() }}0.00</span>
                     </div>
                 </div>
 
                 <div class="flex justify-between text-lg font-bold mb-6">
                     <span>Total</span>
-                    <span class="text-blue-600" id="total">$0.00</span>
+                    <span class="text-blue-600" id="total">{{ $room->currency->symbol() }}0.00</span>
                 </div>
 
                 <div class="bg-yellow-50 border border-yellow-200 p-4 rounded text-sm text-yellow-800">
@@ -143,6 +143,7 @@
 
     <script>
         const pricePerNight = {{ $room->price_per_night }};
+        const currencySymbol = '{{ $room->currency->symbol() }}';
 
         function updateSummary() {
             const checkIn = document.getElementById('check_in_date').value;
@@ -163,9 +164,9 @@
                     const fee = Math.round(subtotal * 0.1 * 100) / 100; // 10% service fee
                     const total = subtotal + fee;
 
-                    document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
-                    document.getElementById('fee').textContent = '$' + fee.toFixed(2);
-                    document.getElementById('total').textContent = '$' + total.toFixed(2);
+                    document.getElementById('subtotal').textContent = currencySymbol + subtotal.toFixed(2);
+                    document.getElementById('fee').textContent = currencySymbol + fee.toFixed(2);
+                    document.getElementById('total').textContent = currencySymbol + total.toFixed(2);
                 }
             }
         }
