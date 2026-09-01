@@ -93,8 +93,8 @@ tests/
 
 ```bash
 # Clone the repository
-git clone <repository>
-cd assignment-larvel
+git clone https://github.com/CasienDetra/Rental.git 
+cd Rental
 
 # Install dependencies
 composer install
